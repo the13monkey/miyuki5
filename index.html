@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usic Player</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="d-flex justify-content-between align-items-center">
+            <div class="logo d-flex justify-content-start align-items-center">
+                <img src="img/favicon.png">usic Player
+            </div>
+            <ul class="navbar d-flex justify-content-start align-items-top">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Playlist</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Lyric Book</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-wrapper">
+        this is the main content area
+    </div>
+
+    
+    <div class="control-wrapper">
+        <div class="song-information d-flex justify-content-start align-items-center">
+            <img src="img/song_cover.jpg">
+            <h3 id="song-title">恩知らず / Ingratitude</h3>
+            <button id="info" type="button" title="Information of This Song">
+                <svg width="2em" height="2em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg); float:right;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z" fill="#FCF7FA"/></svg>
+            </button>
+        </div>
+        <div class="progress-wrapper d-flex align-items-center justify-content-between">
+            <p id="startTime">0:00</p>
+            <input type="range" id="progress" name="progress" min="0" max="100" value="0" step="1">
+            <p id="endTime" style="text-align:right;">5:04</p>
+        </div>
+        <div class="control-buttons d-flex justify-content-between align-items-center">
+            <button id="repeat" type="button" title="Repeat">
+                <svg id="repeatBtn" width="1.75em" height="1.75em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4l-4-4v3H5v6h2V7zm10 10H7v-3l-4 4l4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z" fill="#fcf7fa"/></svg>
+            </button>
+            <button id="pervSong" type="button" title="Pervious Song">
+                <svg width="2.5em" height="2.5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M7 17V7c0-.55-.45-1-1-1s-1 .45-1 1v10c0 .55.45 1 1 1s1-.45 1-1zm9.45-9.96l-6.2 4.13a1 1 0 0 0 0 1.66l6.2 4.13a.997.997 0 0 0 1.55-.83V7.87c0-.8-.89-1.28-1.55-.83z" fill="#FCF7FA"/></svg>
+            </button>
+            <button id="playPause" type="button" title="Play/Pause">
+                <svg id="playBtn" width="5em" height="5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5l-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z" fill="#a44d98"/></svg>
+
+                <svg id="pauseBtn" width="5em" height="5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg); display:none;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8zm1-4h2V8h-2v8z" fill="#a44d98"/></svg>
+            </button>
+            <button id="nextSong" type="button" title="Next Song">
+                <svg id="nextSongBtn" width="2.5em" height="2.5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" fill="#FCF7FA"/></svg>
+            </button>
+            <button id="shuffle" type="button" title="Shuffle">
+                <svg id="shuffleBtn" width="1.75em" height="1.75em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4L4 5.41l5.17 5.17l1.42-1.41zM14.5 4l2.04 2.04L4 18.59L5.41 20L17.96 7.46L20 9.5V4h-5.5zm.33 9.41l-1.41 1.41l3.13 3.13L14.5 20H20v-5.5l-2.04 2.04l-3.13-3.13z" fill="#fcf7fa"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <script src="js/script.js"></script>
+    </footer>
+</body>
+</html>
