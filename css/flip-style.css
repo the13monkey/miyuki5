@@ -9,14 +9,15 @@ img{
     display:flex;
     max-width:100%;
     height: auto; 
+    box-shadow: var(--shadow); 
 }
 #cover{
-    width:400px;
-    height:400px;
+    width:380px;
+    height:380px;
 }
 .flip-book{
-    width:400px;
-    height:400px;
+    width:380px;
+    height:380px;
     position:relative; 
     perspective: 1500px;
 }
@@ -42,10 +43,12 @@ p{
     height:100%;
     top:0;
     left:0;
-    background-color:#fff;
+    background-color: var(--dark);
     box-sizing:border-box;
-    padding: 0 13px;
-    box-shadow: inset 20px 0 50px rgba(0,0,0,0.5) 0 2px 5px rgba(0,0,0,0.5); 
+    padding: 0 60px;
+}
+.front ul li{
+    padding:.5rem 0;
 }
 .back{
     position:absolute; 
@@ -63,14 +66,14 @@ p{
     bottom:13px;
     right:13px;
     cursor:pointer;
-    color:#000;
+    color:var(--light);
 }
 .back-btn{
     position:absolute; 
     bottom:13px;
     right:13px;
     cursor:pointer; 
-    color:#000;
+    color:var(--light);
 }
 #p1{
     z-index:3;
