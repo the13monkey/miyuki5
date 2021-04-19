@@ -243,7 +243,7 @@ footer img{
     z-index:3; 
     right:10px;
     bottom: 35px; 
-    max-width:300px;
+    width: calc(50% - 450px);
     height: auto; 
 }
 #mic{
