@@ -1,0 +1,44 @@
+{
+    "lyrics":[
+        {
+            "line":"This is the lyric for the wheat song",
+            "time":1000
+        },
+        {
+            "line":"I appreciate your lots of attention and companionship",
+            "time":7000
+        },
+        {
+            "line":"I kept you busy doing this or that for me at the cost of your own interest",
+            "time":14000
+        },
+        {
+            "line":"All of sudden I realize you've become so tatterred",
+            "time":20000
+        },
+        {
+            "line":"So, should I carry on?",
+            "time":26000
+        },
+        {
+            "line":"Therefore, therefore, let's break up",
+            "time":32000
+        },
+        {
+            "line":"So that, so that, so that you can finally enjoy yourself",
+            "time":39000
+        },
+        {
+            "line":"I will return your kindness with ingratitude",
+            "time":44000
+        },
+        {
+            "line":"I'm such a ungrateful person",
+            "time":48000
+        },
+        {
+            "line":"Though I'll love you forever    I'm sorry",
+            "time":51000
+        }
+    ]
+}
