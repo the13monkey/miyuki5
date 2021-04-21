@@ -5,21 +5,24 @@
             "title": "恩知らず / Ingratitude",
             "jp": "lyric/ingratitude-jp.json",
             "en": "lyric/ingratitude-en.json",
-            "audio": "audio/ingratitude.mp3"
+            "audio": "audio/ingratitude.mp3",
+            "thumb": "img/song_cover.jpg"
         },
         {
             "ID": 2,
             "title": "麦の唄 / The Wheat Song",
             "jp": "lyric/the-wheat-song-jp.json",
             "en": "lyric/the-wheat-song-en.json",
-            "audio": "audio/the-wheat-song.mp3"
+            "audio": "audio/the-wheat-song.mp3",
+            "thumb": "img/song_cover1.jpg"
         },
         {
             "ID": 3,
             "title": "荒野より / From The Icy Reaches",
             "jp": "lyric/from-the-icy-reaches-jp.json",
             "en": "lyric/from-the-icy-reaches-en.json",
-            "audio": "audio/from-the-icy-reaches.mp3"
+            "audio": "audio/from-the-icy-reaches.mp3",
+            "thumb": "img/song_cover2.jpg"
         }
     ]
 }
