@@ -145,7 +145,6 @@ input[type="range"]::-webkit-slider-thumb{
     box-shadow: 10px solid #fff;
 }
 #progress-bar{
-    width:100px;
     height:.25rem;
     background-color:var(--red);
     position:absolute; 
@@ -224,7 +223,7 @@ input[type="range"]::-webkit-slider-thumb{
 #lyric-wrapper {
     width:100%;
     text-align:center; 
-    transform: translateY(calc(50% - 0rem));
+    transform: translateY(calc(50% - 4rem));
 }
 #lyric-wrapper p {
     text-align: center; 
@@ -280,6 +279,7 @@ footer img{
     bottom: 35px; 
     width: calc(50% - 400px);
     height: auto; 
+    display:none;
 }
 #mic{
     z-index:3; 
@@ -299,5 +299,10 @@ footer img{
 @media screen and (min-width: 768px) {
     .control-wrapper{
         left: calc( 50% - 384px )
+    }
+}
+@media screen and (min-width:1280px) {
+    #miyuki{
+        display:block;
     }
 }

@@ -15,7 +15,11 @@ $(document).ready(function(){
     $.getJSON('../playlist.json', function(data){
 
         var playlist = data.songs
-        var index = sessionStorage.getItem("index")
+        if ( sessionStorage.getItem("index") === null) {
+            var index = 0
+        } else {
+            var index = sessionStorage.getItem("index")
+        }
         var lyricFile = playlist[index]["en"]
         var title = playlist[index]["title"]
         var thumb = playlist[index]["thumb"]
@@ -33,10 +37,6 @@ $(document).ready(function(){
         var audio = new Audio()
         audio.src = playlist[index]["audio"]
         audio.loop = false
-        //If want to auto play on pageload 
-        audio.play()
-        $("#playBtn").hide()
-        $("#pauseBtn").show()
 
         $("#songName, #song-title").html(title)
         $("#song-thumbnail").attr("src",thumb)
@@ -62,6 +62,11 @@ $(document).ready(function(){
         audio.addEventListener("ended", function(){
             $("#playBtn").show()
             $("#pauseBtn").hide()
+            seekslider.value = "0"
+            $("#progress-bar").css("width", "0")
+            curtimetext.innerHTML = "00"+":"+"00";
+            $("#lyric-wrapper p").removeClass("active")
+            $("#lyric-wrapper").css("transform", "translateY(calc(50% - 4rem))")
         })
 
         function getSongDetails() {
@@ -124,9 +129,51 @@ $(document).ready(function(){
             }
         }
 
-        function seektimeupdate(){
-            
+        var lyricJSON = sessionStorage.getItem("lyricJSON")
+        var lyricObj = JSON.parse(lyricJSON)
+        var lyricTimes = [];
+        var lyricLines = [];
+        for (var j = 0; j < lyricObj.length; j++){
+            lyricTimes.push(lyricObj[j]["time"])
+            lyricLines.push(lyricObj[j]["line"])
+        }
 
+        function seektimeupdate(){
+            if (audio.duration){
+                let seeksliderCurrentValue = ( audio.currentTime * 100 ) / audio.duration
+
+                seekslider.value = seeksliderCurrentValue; 
+
+                let seeksliderRect = seekslider.getBoundingClientRect()
+
+                let seeksliderWidth = seeksliderRect.width
+
+                let progressWidth = ( audio.currentTime * seeksliderWidth ) / audio.duration
+
+                $("#progress-bar").css("width", progressWidth)
+
+                var curmins = Math.floor(audio.currentTime / 60)
+                var cursecs = Math.floor(audio.currentTime - curmins * 60)
+                var durmins = Math.floor(audio.duration / 60)
+                var dursecs = Math.floor(audio.duration - durmins * 60)
+                var curTotalSecs = (curmins * 60 + cursecs) * 100;
+                if (cursecs < 10){ cursecs = "0"+cursecs }
+                if (dursecs < 10){ dursecs = "0"+dursecs }
+                curtimetext.innerHTML = curmins+":"+cursecs;
+                durtimetext.innerHTML = durmins+":"+dursecs;
+
+                if (lyricTimes.indexOf(curTotalSecs) !== -1){
+                    let matchingIndex = lyricTimes.indexOf(curTotalSecs) + 1;
+                    $("#lyric-wrapper p").removeClass("active")
+                    $("#lyric-wrapper p:nth-child("+matchingIndex+")").addClass("active")
+                    let moveup = 4 * matchingIndex 
+                    $("#lyric-wrapper").css("transform", "translateY(calc(50% - "+ moveup +"rem))")
+                }
+                
+            } else {
+                curtimetext.innerHTML = "00"+":"+"00";
+                durtimetext.innerHTML = "00"+":"+"00";
+            }
         }
 
         displayLyric()
